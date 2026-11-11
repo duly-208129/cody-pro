@@ -813,9 +813,10 @@ http://localhost:8080
 
 ``` text
 HTTP/1.1 200 OK
-
-<h1>Hello, Docker!</h1>
-<p>내 첫 번째 커스텀 웹 서버입니다.</p>
+Server: nginx/1.31.8
+Date: Wed, 11 Nov 2026 02:41:30 GMT
+Content-Type: text/html
+Content-Length: 896
 ```
 
 **\[추가 검증 필요\]**
@@ -901,14 +902,23 @@ curl.exe http://localhost:8080
 
 정상적으로 연결되었다면 컨테이너를 다시 빌드하거나 생성하지 않아도
 변경된 HTML 내용이 표시되어야 한다.
+### 실행 증거
+#### 컨테이너 실행 및 포트 매핑 확인
+아래는 실행 중인 컨테이너와 포트 매핑을 확인한 결과입니다.
+```bash
+docker ps
+curl.exe -i http://localhost:8080
+```
+- `docker ps` 실행 결과, `nginx` 컨테이너가 `0.0.0.0:8080->80/tcp` 포트 매핑으로 실행 중임을 확인했습니다.
+- 호스트 환경에서 `curl.exe -i http://localhost:8080` 명령으로 접속을 확인했습니다.
+- 응답 헤더에서 `HTTP/1.1 200 OK`를 확인했습니다.
+- 위 결과를 증빙하기 위해 `docker ps` 출력 캡처와 `curl` 실행 결과 캡처를 함께 첨부합니다.
 
-**\[추가 검증 필요\]**
-
-호스트 파일 변경 전과 변경 후의 결과를 비교할 수 있는 증거를 확보한다.
-
-``` text
-images/bind-mount-before.png
-images/bind-mount-after.png
+``` ## 실행 결과 증빙
+- 0.0.0.0:8080->80/tcp, [::]:8080->80/tcp
+- HTTP/1.1 200 OK
+  Server: nginx/1.31.8
+  Date: Wed, 11 Nov 2026 04:39:43 GMT
 ```
 
 ### 8-6. 바인드 마운트의 특징
@@ -1129,14 +1139,14 @@ git remote -v
 저장소 주소:
 
 ``` text
-https://github.com/ksdevl/my-first-Docker.git
+https://github.com/duly-208129/cody-pro
 ```
 
 원격 저장소가 이미 등록되어 있다면 중복으로 추가하지 않고 주소를
 확인하거나 수정한다.
 
 ``` powershell
-git remote set-url origin https://github.com/ksdevl/my-first-Docker.git
+git remote set-url origin https://github.com/duly-208129/cody-pro
 ```
 
 ### 10-6. 변경사항 커밋 및 업로드
