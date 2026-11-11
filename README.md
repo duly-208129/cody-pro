@@ -75,8 +75,8 @@ systeminfo
 기존 확인 기록:
 
 ``` text
-OS Name: Microsoft Windows 10 Home
-OS Version: 10.0.19045
+OS 이름:Microsoft Windows 11 Home
+OS 버전:10.0.26300 N/A 빌드 26300
 System Type: x64-based PC
 ```
 
@@ -103,6 +103,7 @@ docker desktop version
 
 ``` text
 Docker version 29.9.2, build a82e528
+Docker Desktop CLI plugin version: 4.97.0
 ```
 
 ### 2-6. Docker 엔진 동작 상태 확인
@@ -120,9 +121,8 @@ Client:
 
 Server:
  Server Version: 29.9.2
- Operating System: Docker Desktop
- OSType: linux
- Architecture: x86_64
+ Storage Driver: overlayfs
+  driver-type: io.containerd.snapshotter.v1
 ```
 
 -   Docker Client는 사용자의 명령어를 전달한다.
@@ -148,6 +148,18 @@ mkdir screenshots
 mkdir images
 
 Get-ChildItem -Force
+```
+### 명령어 실행 확인
+
+``` powershell
+PS C:\Users\k'\docker-workstation> 
+mkdir images
+  디렉터리: C:\Users\k'\docker-workstation
+  Mode                 LastWriteTime   Length
+PS C:\Users\k'\docker-workstation> Get-ChildItem -Force
+  디렉터리: C:\Users\k'\docker-workstation
+  Mode                 LastWriteTime   Length
+----
 ```
 
 ### 3-2. 프로젝트 디렉터리 구조
@@ -191,7 +203,6 @@ my-first-Docker/
   ------------------ --------------------------------
   `app/`             웹 서버에서 제공할 HTML 파일
   `images/`          README에 삽입할 이미지
-  `logs/`            터미널 및 Docker 실행 기록
   `screenshots/`     실습 과정 증거 이미지
   `docker/`          추가 Docker 실습 및 설정 파일
   `docker-workstation/`     호스트 데이터 실습
@@ -1600,7 +1611,16 @@ Git과 GitHub를 연동하여 프로젝트 파일과 수행 기록을 관리하�
 
 GitHub Repository:
 
-https://github.com/ksdevl/my-first-Docker
+https://github.com/duly-208129/cody-pro
+
+실행 결과
+```
+branch 'main' set up to track 'origin/main'.
+Everything up-to-date
+
+49c94193aad2535e59a84ee1784f779cf2cf95af     HEAD
+49c94193aad2535e59a84ee1784f779cf2cf95af     refs/heads/main
+```
 
 주요 산출물:
 
